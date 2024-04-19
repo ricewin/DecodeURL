@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:decodeURL"
         mc:Ignorable="d"
         Title="decode URL"
-        Height="350"
-        Width="650"
+        Height="360"
+        Width="640"
         ScrollViewer.VerticalScrollBarVisibility="Disabled"
         ResizeMode="CanResizeWithGrip"
         Background="AliceBlue">
@@ -19,7 +19,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <StackPanel>
-            <Label x:Name="label"
+            <Label x:Name="appName"
                    Content="decode URL"
                    FontSize="24"
                    FontWeight="Black"
@@ -27,43 +27,42 @@
                    Width="600"
                    TabIndex="1" />
             <Label x:Name="detail"
-                   Content="URL エンコードされたリンクを日本語にデコードします★"
+                   Content="URLエンコードされたリンクを日本語にデコードします★"
                    Width="600"
                    TabIndex="2" />
         </StackPanel>
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
-            <TextBox x:Name="textBox"
+            <TextBox x:Name="inputBox"
                      TextWrapping="Wrap"
                      Text="input here URL."
                      Width="486"
-                     Margin="10,0,0,0"
-                     Padding="5"
-                     TabIndex="3">
+                     Margin="10"
+                     TabIndex="3"
+                     AutomationProperties.Name="input">
             </TextBox>
             <Button x:Name="convert"
                     Content="変換"
                     HorizontalAlignment="Right"
                     Margin="10"
-                    Padding="20,10"
-                    Width="83"
+                    Width="80"
                     Click="doConvert"
                     TabIndex="4" />
         </StackPanel>
         <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
-            <TextBlock x:Name="textBlock"
+            <TextBox x:Name="outputBox"
                        TextWrapping="Wrap"
                        Width="486"
-                       Margin="10,0,0,0"
-                       Padding="5" />
+                       Margin="10"
+                       Padding="5"
+                     AutomationProperties.Name="output" />
             <Button x:Name="copy"
                     Content="コピー"
                     Margin="10"
-                    Padding="20,10"
-                    Width="83"
+                    Width="80"
                     TabIndex="6"
                     Click="doCopy" />
         </StackPanel>
@@ -72,25 +71,24 @@
                     HorizontalAlignment="Right">
             <TextBlock x:Name="messageBox"
                        TextWrapping="Wrap"
-                       Width="300"
+                       Width="250"
                        FontSize="16"
-                       Margin="0,0,10,0"
                        VerticalAlignment="Center" />
             <Button x:Name="sample"
                     Content="サンプル"
-                    Margin="15,0"
+                    Margin="15,10"
                     Padding="20,10"
                     TabIndex="7"
                     Click="inputSample" />
             <Button x:Name="clear"
                     Content="クリア(_C)"
-                    Margin="0,0,15,0"
+                    Margin="15,10"
                     Padding="20,10"
                     TabIndex="8"
                     Click="doClear" />
             <Button x:Name="close"
                     Content="閉じる(_X)"
-                    Margin="0,0,10,0"
+                    Margin="15,10"
                     Padding="20,10"
                     TabIndex="9"
                     Click="doExit" />

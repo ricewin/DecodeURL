@@ -24,25 +24,25 @@ namespace decodeURL
 
         private void doConvert(object sender, RoutedEventArgs e)
         {
-            textBlock.Text = HttpUtility.UrlDecode(textBox.Text);
+            outputBox.Text = HttpUtility.UrlDecode(inputBox.Text);
         }
 
         private void doClear(object sender, RoutedEventArgs e)
         {
-            textBox.Text = "";
-            textBlock.Text = "";
+            inputBox.Text = "";
+            outputBox.Text = "";
             messageBox.Text = "";
         }
 
         private void doCopy(object sender, RoutedEventArgs e)
         {
-            Clipboard.SetText(textBox.Text);
+            Clipboard.SetText(outputBox.Text);
             messageBox.Text = "コピーしました！";
         }
 
         private void inputSample(object sender, RoutedEventArgs e)
         {
-            textBox.Text = "https://www.bing.com/travel/place-information?q=%E3%82%A2%E3%83%AB%E3%82%B6%E3%82%B9%E5%9C%B0%E5%9F%9F%E5%9C%8F";
+            inputBox.Text = "https://www.bing.com/travel/place-information?q=%E3%82%A2%E3%83%AB%E3%82%B6%E3%82%B9%E5%9C%B0%E5%9F%9F%E5%9C%8F";
         }
 
         private void doExit(object sender, RoutedEventArgs e)
