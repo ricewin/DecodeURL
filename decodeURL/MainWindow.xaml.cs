@@ -14,7 +14,7 @@ namespace decodeURL
         /// </summary>
         /// <param name="url"></param>
         /// <returns>true: 有効 false: 無効</returns>
-        private bool Rewrite(string url)
+        private static bool Rewrite(string url)
         {
             if (url.Contains(".mcas"))
             {
@@ -28,7 +28,7 @@ namespace decodeURL
         /// </summary>
         /// <param name="url"></param>
         /// <returns>URL</returns>
-        private string SubUrl(string url)
+        private static string SubUrl(string url)
         {
             var repUrl = url;
             var tailPos = repUrl.LastIndexOf("?");
@@ -43,7 +43,6 @@ namespace decodeURL
             {
                 return repUrl;
             }
-            
             return repUrl.Remove(headPos, bottomPos - headPos + 1);
         }
 
@@ -61,7 +60,7 @@ namespace decodeURL
             InitializeComponent();
         }
 
-        private void doDecode(object sender, RoutedEventArgs e)
+        private void DoDecode(object sender, RoutedEventArgs e)
         {
             var decodeUrl = HttpUtility.UrlDecode(inputBox.Text);
             if (Rewrite(decodeUrl))
@@ -74,37 +73,37 @@ namespace decodeURL
             }
         }
 
-        private void doClear(object sender, RoutedEventArgs e)
+        private void DoClear(object sender, RoutedEventArgs e)
         {
             inputBox.Text = "";
             outputBox.Text = "";
             messageBox.Text = "";
         }
 
-        private void doCopy(object sender, RoutedEventArgs e)
+        private void DoCopy(object sender, RoutedEventArgs e)
         {
             if (UrlDecoded())
             {
                 Clipboard.SetText(outputBox.Text);
-                messageBox.Text = "Copied!";                
+                messageBox.Text = "Copied!";
             }
         }
 
-        private void inputSample(object sender, RoutedEventArgs e)
+        private void InputSample(object sender, RoutedEventArgs e)
         {
             inputBox.Text = "https://www.bing.com/travel/place-information?q=%E3%82%A2%E3%83%AB%E3%82%B6%E3%82%B9%E5%9C%B0%E5%9F%9F%E5%9C%8F";
         }
 
-        private void doExit(object sender, RoutedEventArgs e)
+        private void DoExit(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
-        private void openBrowser(object sender, RoutedEventArgs e)
+        private void OpenBrowser(object sender, RoutedEventArgs e)
         {
             if (UrlDecoded())
             {
-                Process.Start(new ProcessStartInfo
+                _ = Process.Start(new ProcessStartInfo
                 {
                     FileName = outputBox.Text,
                     UseShellExecute = true
