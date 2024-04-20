@@ -45,6 +45,7 @@ namespace decodeURL
             
             return _repUrl.Remove(_headPos, _bottomPos - _headPos + 1);
         }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -73,7 +74,7 @@ namespace decodeURL
         private void doCopy(object sender, RoutedEventArgs e)
         {
             Clipboard.SetText(outputBox.Text);
-            messageBox.Text = "コピーしました！";
+            messageBox.Text = "Copied!";
         }
 
         private void inputSample(object sender, RoutedEventArgs e)
