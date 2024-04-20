@@ -48,7 +48,8 @@
                     Margin="10"
                     Width="80"
                     Click="doConvert"
-                    TabIndex="4" />
+                    TabIndex="4"
+                    IsDefault="True" />
         </StackPanel>
         <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
@@ -58,7 +59,9 @@
                        Width="486"
                        Margin="10"
                        Padding="5"
-                     AutomationProperties.Name="output" />
+                     AutomationProperties.Name="output"
+                     TabIndex="5"
+                     IsTabStop="False" />
             <Button x:Name="copy"
                     Content="コピー"
                     Margin="10"
@@ -79,18 +82,19 @@
                     Margin="15,10"
                     Padding="20,10"
                     TabIndex="7"
-                    Click="inputSample" />
+                    Click="inputSample"
+                    IsTabStop="False" />
             <Button x:Name="clear"
                     Content="クリア(_C)"
                     Margin="15,10"
                     Padding="20,10"
-                    TabIndex="8"
+                    TabIndex="9"
                     Click="doClear" />
             <Button x:Name="close"
                     Content="閉じる(_X)"
                     Margin="15,10"
                     Padding="20,10"
-                    TabIndex="9"
+                    TabIndex="8"
                     Click="doExit" />
         </StackPanel>
 
