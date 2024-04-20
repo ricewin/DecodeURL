@@ -43,7 +43,6 @@ namespace decodeURL
             {
                 return repUrl;
             }
-            
             return repUrl.Remove(headPos, bottomPos - headPos + 1);
         }
 
