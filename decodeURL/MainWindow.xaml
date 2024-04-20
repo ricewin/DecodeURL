@@ -24,12 +24,10 @@
                    FontSize="24"
                    FontWeight="Black"
                    FontFamily="Broadway"
-                   Width="600"
-                   TabIndex="1" />
+                   Width="600" />
             <Label x:Name="detail"
                    Content="URLエンコードされたリンクを日本語にデコードします★"
-                   Width="600"
-                   TabIndex="2" />
+                   Width="600" />
         </StackPanel>
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
@@ -39,16 +37,13 @@
                      Text="input here URL."
                      Width="486"
                      Margin="10"
-                     TabIndex="3"
-                     AutomationProperties.Name="input">
-            </TextBox>
+                     AutomationProperties.Name="input" />
             <Button x:Name="convert"
                     Content="変換"
                     HorizontalAlignment="Right"
                     Margin="10"
                     Width="80"
                     Click="doConvert"
-                    TabIndex="4"
                     IsDefault="True" />
         </StackPanel>
         <StackPanel Grid.Row="2"
@@ -60,13 +55,11 @@
                        Margin="10"
                        Padding="5"
                      AutomationProperties.Name="output"
-                     TabIndex="5"
                      IsTabStop="False" />
             <Button x:Name="copy"
                     Content="コピー"
                     Margin="10"
                     Width="80"
-                    TabIndex="6"
                     Click="doCopy" />
         </StackPanel>
         <StackPanel Grid.Row="3"
@@ -77,24 +70,25 @@
                        Width="250"
                        FontSize="16"
                        VerticalAlignment="Center" />
+            <Button x:Name="open"
+                    Content="ブラウザーで開く"
+                    Margin="10"
+                    Padding="10"
+                    Click="openBrowser" />
             <Button x:Name="sample"
                     Content="サンプル"
-                    Margin="15,10"
-                    Padding="20,10"
-                    TabIndex="7"
-                    Click="inputSample"
-                    IsTabStop="False" />
+                    Margin="10"
+                    Padding="10"
+                    Click="inputSample" />
             <Button x:Name="clear"
                     Content="クリア(_C)"
-                    Margin="15,10"
-                    Padding="20,10"
-                    TabIndex="9"
+                    Margin="10"
+                    Padding="10"
                     Click="doClear" />
             <Button x:Name="close"
                     Content="閉じる(_X)"
-                    Margin="15,10"
-                    Padding="20,10"
-                    TabIndex="8"
+                    Margin="10"
+                    Padding="10"
                     Click="doExit" />
         </StackPanel>
 

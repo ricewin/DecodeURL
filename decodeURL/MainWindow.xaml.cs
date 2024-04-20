@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.Diagnostics;
+using System.Web;
 using System.Windows;
 
 namespace decodeURL
@@ -83,6 +84,18 @@ namespace decodeURL
         private void doExit(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void openBrowser(object sender, RoutedEventArgs e)
+        {
+            if (outputBox.Text != "")
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = outputBox.Text,
+                    UseShellExecute = true
+                });
+            }
         }
     }
 }
