@@ -95,6 +95,5 @@
                     Content="閉じる(_X)"
                     Click="doExit" />
         </StackPanel>
-
     </Grid>
 </Window>
