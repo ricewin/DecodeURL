@@ -10,10 +10,10 @@ namespace decodeURL
     public partial class MainWindow : Window
     {
         /// <summary>
-        /// MCASが有効か確認
+        /// MCASが有効か
         /// </summary>
         /// <param name="url"></param>
-        /// <returns>true: 有効 false: 無効</returns>
+        /// <returns>true: 有効、false: 無効</returns>
         private bool Rewrite(string url)
         {
             if (url.Contains(".mcas"))
@@ -45,13 +45,21 @@ namespace decodeURL
             
             return _repUrl.Remove(_headPos, _bottomPos - _headPos + 1);
         }
+        /// <summary>
+        /// デコード済みか
+        /// </summary>
+        /// <returns>true: 済み、false: 未済</returns>
+        private bool UrlDecoded()
+        {
+            return outputBox.Text != "" ? true : false;
+        }
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void doConvert(object sender, RoutedEventArgs e)
+        private void doDecode(object sender, RoutedEventArgs e)
         {
             var decodeUrl = HttpUtility.UrlDecode(inputBox.Text);
             if (Rewrite(decodeUrl))
@@ -73,8 +81,11 @@ namespace decodeURL
 
         private void doCopy(object sender, RoutedEventArgs e)
         {
-            Clipboard.SetText(outputBox.Text);
-            messageBox.Text = "Copied!";
+            if (UrlDecoded())
+            {
+                Clipboard.SetText(outputBox.Text);
+                messageBox.Text = "Copied!";                
+            }
         }
 
         private void inputSample(object sender, RoutedEventArgs e)
@@ -89,7 +100,7 @@ namespace decodeURL
 
         private void openBrowser(object sender, RoutedEventArgs e)
         {
-            if (outputBox.Text != "")
+            if (UrlDecoded())
             {
                 Process.Start(new ProcessStartInfo
                 {

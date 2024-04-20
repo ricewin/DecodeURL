@@ -11,6 +11,20 @@
         ScrollViewer.VerticalScrollBarVisibility="Disabled"
         ResizeMode="CanResizeWithGrip"
         Background="AliceBlue">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin"
+                    Value="10" />
+            <Setter Property="Padding"
+                    Value="5" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin"
+                    Value="10" />
+            <Setter Property="Padding"
+                    Value="5" />
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -23,6 +37,7 @@
                    Content="decode URL"
                    FontSize="24"
                    FontWeight="Black"
+                   Foreground="Tomato"
                    FontFamily="Broadway"
                    Width="600" />
             <Label x:Name="detail"
@@ -34,16 +49,14 @@
                     HorizontalAlignment="Right">
             <TextBox x:Name="inputBox"
                      TextWrapping="Wrap"
-                     Text="input here URL."
+                     Text="ここに *URL* を入力"
                      Width="486"
-                     Margin="10"
                      AutomationProperties.Name="input" />
-            <Button x:Name="convert"
-                    Content="変換(_V)"
+            <Button x:Name="decode"
+                    Content="デコード(_V)"
                     HorizontalAlignment="Right"
-                    Margin="10"
                     Width="80"
-                    Click="doConvert"
+                    Click="doDecode"
                     IsDefault="True" />
         </StackPanel>
         <StackPanel Grid.Row="2"
@@ -52,13 +65,10 @@
             <TextBox x:Name="outputBox"
                      TextWrapping="Wrap"
                      Width="486"
-                     Margin="10"
-                     Padding="5"
                      AutomationProperties.Name="output"
                      IsTabStop="False" />
             <Button x:Name="copy"
                     Content="コピー(_C)"
-                    Margin="10"
                     Width="80"
                     Click="doCopy" />
         </StackPanel>
@@ -67,30 +77,23 @@
                     HorizontalAlignment="Right">
             <TextBlock x:Name="messageBox"
                        TextWrapping="Wrap"
-                       Width="200"
+                       Width="240"
                        FontSize="16"
+                       Foreground="OrangeRed"
                        VerticalAlignment="Center"
                        FontFamily="Broadway" />
-            <Button x:Name="close"
-                    Content="閉じる(_X)"
-                    Margin="10"
-                    Padding="10"
-                    Click="doExit" />
             <Button x:Name="sample"
                     Content="サンプル(_E)"
-                    Margin="10"
-                    Padding="10"
                     Click="inputSample" />
-            <Button x:Name="open"
-                    Content="ブラウザーで開く(_O)"
-                    Margin="10"
-                    Padding="10"
-                    Click="openBrowser" />
             <Button x:Name="clear"
                     Content="クリア(_D)"
-                    Margin="10"
-                    Padding="10"
                     Click="doClear" />
+            <Button x:Name="open"
+                    Content="ブラウザーで開く(_O)"
+                    Click="openBrowser" />
+            <Button x:Name="close"
+                    Content="閉じる(_X)"
+                    Click="doExit" />
         </StackPanel>
 
     </Grid>
