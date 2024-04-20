@@ -11,6 +11,20 @@
         ScrollViewer.VerticalScrollBarVisibility="Disabled"
         ResizeMode="CanResizeWithGrip"
         Background="AliceBlue">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin"
+                    Value="10" />
+            <Setter Property="Padding"
+                    Value="5" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin"
+                    Value="10" />
+            <Setter Property="Padding"
+                    Value="5" />
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -23,47 +37,39 @@
                    Content="decode URL"
                    FontSize="24"
                    FontWeight="Black"
+                   Foreground="Tomato"
                    FontFamily="Broadway"
-                   Width="600"
-                   TabIndex="1" />
+                   Width="600" />
             <Label x:Name="detail"
                    Content="URLエンコードされたリンクを日本語にデコードします★"
-                   Width="600"
-                   TabIndex="2" />
+                   Width="600" />
         </StackPanel>
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
             <TextBox x:Name="inputBox"
                      TextWrapping="Wrap"
-                     Text="input here URL."
+                     Text="ここに *URL* を入力"
                      Width="486"
-                     Margin="10"
-                     TabIndex="3"
-                     AutomationProperties.Name="input">
-            </TextBox>
-            <Button x:Name="convert"
-                    Content="変換"
+                     AutomationProperties.Name="input" />
+            <Button x:Name="decode"
+                    Content="デコード(_V)"
                     HorizontalAlignment="Right"
-                    Margin="10"
                     Width="80"
-                    Click="doConvert"
-                    TabIndex="4" />
+                    Click="doDecode"
+                    IsDefault="True" />
         </StackPanel>
         <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
             <TextBox x:Name="outputBox"
-                       TextWrapping="Wrap"
-                       Width="486"
-                       Margin="10"
-                       Padding="5"
-                     AutomationProperties.Name="output" />
+                     TextWrapping="Wrap"
+                     Width="486"
+                     AutomationProperties.Name="output"
+                     IsTabStop="False" />
             <Button x:Name="copy"
-                    Content="コピー"
-                    Margin="10"
+                    Content="コピー(_C)"
                     Width="80"
-                    TabIndex="6"
                     Click="doCopy" />
         </StackPanel>
         <StackPanel Grid.Row="3"
@@ -71,26 +77,22 @@
                     HorizontalAlignment="Right">
             <TextBlock x:Name="messageBox"
                        TextWrapping="Wrap"
-                       Width="250"
+                       Width="240"
                        FontSize="16"
-                       VerticalAlignment="Center" />
+                       Foreground="OrangeRed"
+                       VerticalAlignment="Center"
+                       FontFamily="Broadway" />
             <Button x:Name="sample"
-                    Content="サンプル"
-                    Margin="15,10"
-                    Padding="20,10"
-                    TabIndex="7"
+                    Content="サンプル(_E)"
                     Click="inputSample" />
             <Button x:Name="clear"
-                    Content="クリア(_C)"
-                    Margin="15,10"
-                    Padding="20,10"
-                    TabIndex="8"
+                    Content="クリア(_D)"
                     Click="doClear" />
+            <Button x:Name="open"
+                    Content="ブラウザーで開く(_O)"
+                    Click="openBrowser" />
             <Button x:Name="close"
                     Content="閉じる(_X)"
-                    Margin="15,10"
-                    Padding="20,10"
-                    TabIndex="9"
                     Click="doExit" />
         </StackPanel>
 
