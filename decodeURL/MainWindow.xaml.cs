@@ -9,11 +9,16 @@ namespace decodeURL
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
         /// <summary>
         /// MCASが有効か
         /// </summary>
         /// <param name="url"></param>
-        /// <returns>true: 有効 false: 無効</returns>
+        /// <returns>true: 有効, false: 無効</returns>
         private static bool Rewrite(string url)
         {
             if (url.Contains(".mcas"))
@@ -31,10 +36,10 @@ namespace decodeURL
         private static string SubUrl(string url)
         {
             var repUrl = url;
-            var tailPos = repUrl.LastIndexOf("?");
+            var tailPos = repUrl.LastIndexOf('?');
             if (tailPos > 0)
             {
-                 repUrl = repUrl.Substring(0, tailPos);
+                 repUrl = repUrl[..tailPos];
             }
 
             var headPos = repUrl.IndexOf(".mcas");
@@ -49,15 +54,10 @@ namespace decodeURL
         /// <summary>
         /// デコード済みか
         /// </summary>
-        /// <returns>true: 済み false: 未済</returns>
+        /// <returns>true: 済み, false: 未済</returns>
         private bool UrlDecoded()
         {
-            return outputBox.Text != "" ? true : false;
-        }
-
-        public MainWindow()
-        {
-            InitializeComponent();
+            return outputBox.Text != "";
         }
 
         private void DoDecode(object sender, RoutedEventArgs e)
@@ -73,11 +73,16 @@ namespace decodeURL
             }
         }
 
-        private void DoClear(object sender, RoutedEventArgs e)
+        private void OpenBrowser(object sender, RoutedEventArgs e)
         {
-            inputBox.Text = "";
-            outputBox.Text = "";
-            messageBox.Text = "";
+            if (UrlDecoded())
+            {
+                _ = Process.Start(new ProcessStartInfo
+                {
+                    FileName = outputBox.Text,
+                    UseShellExecute = true
+                });
+            }
         }
 
         private void DoCopy(object sender, RoutedEventArgs e)
@@ -89,9 +94,11 @@ namespace decodeURL
             }
         }
 
-        private void InputSample(object sender, RoutedEventArgs e)
+        private void DoClear(object sender, RoutedEventArgs e)
         {
-            inputBox.Text = "https://www.bing.com/travel/place-information?q=%E3%82%A2%E3%83%AB%E3%82%B6%E3%82%B9%E5%9C%B0%E5%9F%9F%E5%9C%8F";
+            inputBox.Text = "";
+            outputBox.Text = "";
+            messageBox.Text = "";
         }
 
         private void DoExit(object sender, RoutedEventArgs e)
@@ -99,16 +106,9 @@ namespace decodeURL
             Close();
         }
 
-        private void OpenBrowser(object sender, RoutedEventArgs e)
+        private void InputSample(object sender, RoutedEventArgs e)
         {
-            if (UrlDecoded())
-            {
-                _ = Process.Start(new ProcessStartInfo
-                {
-                    FileName = outputBox.Text,
-                    UseShellExecute = true
-                });
-            }
+            inputBox.Text = "https://www.bing.com/travel/place-information?q=%E3%82%A2%E3%83%AB%E3%82%B6%E3%82%B9%E5%9C%B0%E5%9F%9F%E5%9C%8F";
         }
     }
 }

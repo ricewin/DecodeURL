@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="decode URL"
         Height="360"
-        Width="640"
+        Width="600"
         ScrollViewer.VerticalScrollBarVisibility="Disabled"
-        ResizeMode="CanResizeWithGrip"
+        ResizeMode="NoResize"
         Background="AliceBlue">
     <Window.Resources>
         <Style TargetType="TextBox">
@@ -45,8 +45,7 @@
                    Width="600" />
         </StackPanel>
         <StackPanel Grid.Row="1"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Right">
+                    Orientation="Horizontal">
             <TextBox x:Name="inputBox"
                      TextWrapping="Wrap"
                      Text="ここに *URL* を入力"
@@ -55,13 +54,12 @@
             <Button x:Name="decode"
                     Content="デコード(_V)"
                     HorizontalAlignment="Right"
-                    Width="80"
+                    Width="60"
                     Click="DoDecode"
                     IsDefault="True" />
         </StackPanel>
         <StackPanel Grid.Row="2"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Right">
+                    Orientation="Horizontal">
             <TextBox x:Name="outputBox"
                      TextWrapping="Wrap"
                      Width="486"
@@ -69,15 +67,14 @@
                      IsTabStop="False" />
             <Button x:Name="copy"
                     Content="コピー(_C)"
-                    Width="80"
+                    Width="60"
                     Click="DoCopy" />
         </StackPanel>
         <StackPanel Grid.Row="3"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Right">
+                    Orientation="Horizontal">
             <TextBlock x:Name="messageBox"
                        TextWrapping="Wrap"
-                       Width="240"
+                       Width="233"
                        FontSize="16"
                        Foreground="OrangeRed"
                        VerticalAlignment="Center"
