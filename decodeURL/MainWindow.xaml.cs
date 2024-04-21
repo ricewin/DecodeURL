@@ -9,6 +9,11 @@ namespace decodeURL
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
         /// <summary>
         /// MCASが有効か
         /// </summary>
@@ -53,11 +58,6 @@ namespace decodeURL
         private bool UrlDecoded()
         {
             return outputBox.Text != "" ? true : false;
-        }
-
-        public MainWindow()
-        {
-            InitializeComponent();
         }
 
         private void DoDecode(object sender, RoutedEventArgs e)
