@@ -18,7 +18,7 @@ namespace decodeURL
         /// MCASが有効か
         /// </summary>
         /// <param name="url"></param>
-        /// <returns>true: 有効 false: 無効</returns>
+        /// <returns>true: 有効, false: 無効</returns>
         private static bool Rewrite(string url)
         {
             if (url.Contains(".mcas"))
@@ -36,10 +36,10 @@ namespace decodeURL
         private static string SubUrl(string url)
         {
             var repUrl = url;
-            var tailPos = repUrl.LastIndexOf("?");
+            var tailPos = repUrl.LastIndexOf('?');
             if (tailPos > 0)
             {
-                 repUrl = repUrl.Substring(0, tailPos);
+                 repUrl = repUrl[..tailPos];
             }
 
             var headPos = repUrl.IndexOf(".mcas");
@@ -54,10 +54,10 @@ namespace decodeURL
         /// <summary>
         /// デコード済みか
         /// </summary>
-        /// <returns>true: 済み false: 未済</returns>
+        /// <returns>true: 済み, false: 未済</returns>
         private bool UrlDecoded()
         {
-            return outputBox.Text != "" ? true : false;
+            return outputBox.Text != "";
         }
 
         private void DoDecode(object sender, RoutedEventArgs e)
