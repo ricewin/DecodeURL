@@ -21,11 +21,7 @@ namespace decodeURL
         /// <returns>true: 有効, false: 無効</returns>
         private static bool Rewrite(string url)
         {
-            if (url.Contains(".mcas"))
-            {
-                return true;
-            }
-            return false;
+            return url.Contains(".mcas.");
         }
 
         /// <summary>
@@ -39,10 +35,10 @@ namespace decodeURL
             var tailPos = repUrl.LastIndexOf('?');
             if (tailPos > 0)
             {
-                 repUrl = repUrl[..tailPos];
+                repUrl = repUrl[..tailPos];
             }
 
-            var headPos = repUrl.IndexOf(".mcas");
+            var headPos = repUrl.IndexOf(".mcas.");
             var bottomPos = repUrl.LastIndexOf("=/");
             if (bottomPos < 0)
             {
