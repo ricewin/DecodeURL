@@ -32,7 +32,7 @@ namespace decodeURL
         private static string SubUrl(string url)
         {
             var repUrl = url;
-            var tailPos = repUrl.LastIndexOf('?');
+            var tailPos = repUrl.LastIndexOf('&');
             if (tailPos > 0)
             {
                 repUrl = repUrl[..tailPos];
