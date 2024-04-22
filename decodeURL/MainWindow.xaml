@@ -71,10 +71,11 @@
                     Click="DoCopy" />
         </StackPanel>
         <StackPanel Grid.Row="3"
-                    Orientation="Horizontal">
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
             <TextBlock x:Name="messageBox"
                        TextWrapping="Wrap"
-                       Width="233"
+                       Width="210"
                        FontSize="16"
                        Foreground="OrangeRed"
                        VerticalAlignment="Center"

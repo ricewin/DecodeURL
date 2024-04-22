@@ -38,13 +38,13 @@ namespace decodeURL
                 repUrl = repUrl[..tailPos];
             }
 
-            var headPos = repUrl.IndexOf(".mcas.");
+            var topPos = repUrl.IndexOf(".mcas.");
             var bottomPos = repUrl.LastIndexOf("=/");
             if (bottomPos < 0)
             {
                 return repUrl;
             }
-            return repUrl.Remove(headPos, bottomPos - headPos + 1);
+            return repUrl.Remove(topPos, bottomPos - topPos + 1);
         }
 
         /// <summary>
