@@ -32,7 +32,6 @@ namespace decodeURL
         private static string SubUrl(string url)
         {
             var repUrl = url.Replace(".mcas.ms", "");
-
             var tailPos = repUrl.LastIndexOf('&');
             if (tailPos > 0)
             {
