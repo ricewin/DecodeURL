@@ -15,13 +15,13 @@ namespace decodeURL
         }
 
         /// <summary>
-        /// MCASが有効か
+        /// SharePointか
         /// </summary>
         /// <param name="url"></param>
         /// <returns>true: 有効, false: 無効</returns>
         private static bool Rewrite(string url)
         {
-            return url.Contains(".mcas.");
+            return url.Contains(".sharepoint.");
         }
 
         /// <summary>
@@ -31,20 +31,21 @@ namespace decodeURL
         /// <returns>URL</returns>
         private static string SubUrl(string url)
         {
-            var repUrl = url;
+            var repUrl = url.Replace(".mcas.ms", "");
+
             var tailPos = repUrl.LastIndexOf('&');
             if (tailPos > 0)
             {
                 repUrl = repUrl[..tailPos];
             }
 
-            var topPos = repUrl.IndexOf(".mcas.");
-            var bottomPos = repUrl.LastIndexOf("=/");
-            if (bottomPos < 0)
+            var topPos = repUrl.IndexOf("/sites/");
+            var bottomPos = repUrl.LastIndexOf("/sites/");
+            if (topPos == bottomPos)
             {
                 return repUrl;
             }
-            return repUrl.Remove(topPos, bottomPos - topPos + 1);
+            return repUrl.Remove(topPos, bottomPos - topPos);
         }
 
         /// <summary>
