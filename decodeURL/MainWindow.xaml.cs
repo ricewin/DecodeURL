@@ -31,9 +31,7 @@ namespace decodeURL
             var repUrl = url.Replace(".mcas.ms", "");
             var tailPos = repUrl.LastIndexOf('&');
             if (tailPos > 0)
-            {
                 repUrl = repUrl[..tailPos];
-            }
 
             var topPos = repUrl.IndexOf("/sites/");
             var bottomPos = repUrl.LastIndexOf("/sites/");
