@@ -2,6 +2,13 @@
 
 ## URL エンコードされたリンクを日本語にデコードします
 
+- WPF アプリ
+
+### 実行環境
+
+- .NET 8.0 による実装なので、Runtime または SDK が必要
+- https://dotnet.microsoft.com/download
+
 ### 主な機能
 
 1. SharePoint Online (SPO) のアドレスを、Power Automate for Desktop (PAD) の SharePoint アクションで使用するためのアドレスに変換します。
@@ -33,3 +40,10 @@ https://hogehoge.sharepoint.com.mcas.ms/sites/example/Shared%20Documents/Forms/A
 ### 出力結果
 
 - `https://hogehoge.sharepoint.com/sites/example/Shared Documents/このフォルダー名はダミーです`
+
+
+## 更新履歴
+
+## 0.1.0
+
+- First beta release
