@@ -39,7 +39,7 @@ namespace DecodeURL
         /// デコード済みか
         /// </summary>
         /// <returns>true: 済み, false: 未済</returns>
-        private bool UrlDecoded() => outputBox.Text != "";
+        private bool UrlDecoded => outputBox.Text != "";
 
         private void DoDecode(object sender, RoutedEventArgs e)
         {
@@ -49,7 +49,7 @@ namespace DecodeURL
 
         private void OpenBrowser(object sender, RoutedEventArgs e)
         {
-            if (UrlDecoded())
+            if (UrlDecoded)
             {
                 _ = Process.Start(new ProcessStartInfo
                 {
@@ -61,7 +61,7 @@ namespace DecodeURL
 
         private void DoCopy(object sender, RoutedEventArgs e)
         {
-            if (UrlDecoded())
+            if (UrlDecoded)
             {
                 Clipboard.SetText(outputBox.Text);
                 messageBox.Text = "Copied!";
