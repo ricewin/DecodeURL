@@ -1,26 +1,26 @@
 # DecodeURL
 
-## URL ƒGƒ“ƒR[ƒh‚³‚ê‚½ƒŠƒ“ƒN‚ğ“ú–{Œê‚ÉƒfƒR[ƒh‚µ‚Ü‚·
+## URL ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã•ã‚ŒãŸãƒªãƒ³ã‚¯ã‚’æ—¥æœ¬èªã«ãƒ‡ã‚³ãƒ¼ãƒ‰ã—ã¾ã™
 
-- WPF ƒAƒvƒŠ
+- WPF ã‚¢ãƒ—ãƒª
 
-### ÀsŠÂ‹«
+### å®Ÿè¡Œç’°å¢ƒ
 
-- .NET 8.0 ‚É‚æ‚éÀ‘•‚È‚Ì‚ÅARuntime ‚Ü‚½‚Í SDK ‚ª•K—v
+- .NET 8.0 ã«ã‚ˆã‚‹å®Ÿè£…ãªã®ã§ã€Runtime ã¾ãŸã¯ SDK ãŒå¿…è¦
 - https://dotnet.microsoft.com/download
 
-### å‚È‹@”\
+### ä¸»ãªæ©Ÿèƒ½
 
-1. SharePoint Online (SPO) ‚ÌƒAƒhƒŒƒX‚ğAPower Automate for Desktop (PAD) ‚Ì SharePoint ƒAƒNƒVƒ‡ƒ“‚Åg—p‚·‚é‚½‚ß‚ÌƒAƒhƒŒƒX‚É•ÏŠ·‚µ‚Ü‚·B
-2. SPO ˆÈŠO‚ÌƒTƒCƒg‚ÍAƒfƒR[ƒh‚Ì‚İs‚¢‚Ü‚·B
+1. SharePoint Online (SPO) ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’ã€Power Automate for Desktop (PAD) ã® SharePoint ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã§ä½¿ç”¨ã™ã‚‹ãŸã‚ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã«å¤‰æ›ã—ã¾ã™ã€‚
+2. SPO ä»¥å¤–ã®ã‚µã‚¤ãƒˆã¯ã€ãƒ‡ã‚³ãƒ¼ãƒ‰ã®ã¿è¡Œã„ã¾ã™ã€‚
 
-### g—p•û–@
+### ä½¿ç”¨æ–¹æ³•
 
-1. ƒuƒ‰ƒEƒU[‚©‚ç SPO ‚ÌƒtƒHƒ‹ƒ_[‚ğŠJ‚«Aƒuƒ‰ƒEƒU[‚Ì URL —“‚©‚çƒeƒLƒXƒg‚ğ‚Ü‚é‚²‚ÆƒRƒs[‚µ‚Ä“\‚è•t‚¯‚Ü‚·B
+1. ãƒ–ãƒ©ã‚¦ã‚¶ãƒ¼ã‹ã‚‰ SPO ã®ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‚’é–‹ãã€ãƒ–ãƒ©ã‚¦ã‚¶ãƒ¼ã® URL æ¬„ã‹ã‚‰ãƒ†ã‚­ã‚¹ãƒˆã‚’ã¾ã‚‹ã”ã¨ã‚³ãƒ”ãƒ¼ã—ã¦è²¼ã‚Šä»˜ã‘ã¾ã™ã€‚
 
-### ƒTƒ“ƒvƒ‹
+### ã‚µãƒ³ãƒ—ãƒ«
 
-- ˆÈ‰º‚Ì‚æ‚¤‚ÈƒŠƒ“ƒN‚©‚ç•s—v‚Èƒpƒ‰ƒ[ƒ^[‚ğíœ
+- ä»¥ä¸‹ã®ã‚ˆã†ãªãƒªãƒ³ã‚¯ã‹ã‚‰ä¸è¦ãªãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼ã‚’å‰Šé™¤
 
 ```text: example
 https://hogehoge.sharepoint.com.mcas.ms/sites/example/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2Fexample%2FShared%20Documents%2F%...&viewid=0000f000%000000%000000%000000%00000000000000
@@ -35,14 +35,13 @@ https://hogehoge.sharepoint.com/sites/example/Shared%20Documents/Forms/AllItems.
 
 - `https://hogehoge.sharepoint.com.mcas.ms/sites/example/Shared%20Documents/Forms/AllItems.aspx?csf=1&web=1&e=000000&cid=00000000%2D0000%2D0000%2D0000%2D000000000000&RootFolder=%2Fsites%2Fexample%2FShared%20Documents%2F%E3%81%93%E3%81%AE%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%83%BC%E5%90%8D%E3%81%AF%E3%83%80%E3%83%9F%E3%83%BC%E3%81%A7%E3%81%99&viewid=0000f000%000000%000000%000000%00000000000000`
 
-«
+â†“
 
-### o—ÍŒ‹‰Ê
+### å‡ºåŠ›çµæœ
 
-- `https://hogehoge.sharepoint.com/sites/example/Shared Documents/‚±‚ÌƒtƒHƒ‹ƒ_[–¼‚Íƒ_ƒ~[‚Å‚·`
+- `https://hogehoge.sharepoint.com/sites/example/Shared Documents/ã“ã®ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼åã¯ãƒ€ãƒŸãƒ¼ã§ã™`
 
-
-## XV—š—ğ
+## æ›´æ–°å±¥æ­´
 
 ## 0.1.0
 
