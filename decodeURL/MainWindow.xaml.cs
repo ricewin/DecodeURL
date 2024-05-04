@@ -2,7 +2,7 @@
 using System.Web;
 using System.Windows;
 
-namespace decodeURL
+namespace DecodeURL
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -47,14 +47,7 @@ namespace decodeURL
         private void DoDecode(object sender, RoutedEventArgs e)
         {
             var decodeUrl = HttpUtility.UrlDecode(inputBox.Text);
-            if (Rewrite(decodeUrl))
-            {
-                outputBox.Text = SubUrl(decodeUrl);
-            }
-            else
-            {
-                outputBox.Text = decodeUrl;
-            }
+            outputBox.Text = Rewrite(decodeUrl) ? SubUrl(decodeUrl) : decodeUrl;
         }
 
         private void OpenBrowser(object sender, RoutedEventArgs e)
