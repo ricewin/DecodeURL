@@ -2,7 +2,7 @@
 using System.Web;
 using System.Windows;
 
-namespace decodeURL
+namespace DecodeURL
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -19,10 +19,7 @@ namespace decodeURL
         /// </summary>
         /// <param name="url"></param>
         /// <returns>true: 有効, false: 無効</returns>
-        private static bool Rewrite(string url)
-        {
-            return url.Contains(".sharepoint.");
-        }
+        private static bool Rewrite(string url) => url.Contains(".sharepoint.");
 
         /// <summary>
         /// 不要なURIを削除
@@ -34,39 +31,23 @@ namespace decodeURL
             var repUrl = url.Replace(".mcas.ms", "");
             var tailPos = repUrl.LastIndexOf('&');
             if (tailPos > 0)
-            {
                 repUrl = repUrl[..tailPos];
-            }
 
             var topPos = repUrl.IndexOf("/sites/");
             var bottomPos = repUrl.LastIndexOf("/sites/");
-            if (topPos == bottomPos)
-            {
-                return repUrl;
-            }
-            return repUrl.Remove(topPos, bottomPos - topPos);
+            return topPos == bottomPos ? repUrl : repUrl.Remove(topPos, bottomPos - topPos);
         }
 
         /// <summary>
         /// デコード済みか
         /// </summary>
         /// <returns>true: 済み, false: 未済</returns>
-        private bool UrlDecoded()
-        {
-            return outputBox.Text != "";
-        }
+        private bool UrlDecoded() => outputBox.Text != "";
 
         private void DoDecode(object sender, RoutedEventArgs e)
         {
             var decodeUrl = HttpUtility.UrlDecode(inputBox.Text);
-            if (Rewrite(decodeUrl))
-            {
-                outputBox.Text = SubUrl(decodeUrl);
-            }
-            else
-            {
-                outputBox.Text = decodeUrl;
-            }
+            outputBox.Text = Rewrite(decodeUrl) ? SubUrl(decodeUrl) : decodeUrl;
         }
 
         private void OpenBrowser(object sender, RoutedEventArgs e)
@@ -97,10 +78,7 @@ namespace decodeURL
             messageBox.Text = "";
         }
 
-        private void DoExit(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void DoExit(object sender, RoutedEventArgs e) => Close();
 
         private void InputSample(object sender, RoutedEventArgs e)
         {

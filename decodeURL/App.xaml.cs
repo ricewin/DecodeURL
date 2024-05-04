@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace decodeURL
+namespace DecodeURL
 {
     /// <summary>
     /// Interaction logic for App.xaml
