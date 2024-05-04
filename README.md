@@ -1,4 +1,4 @@
-# decodeURL
+# DecodeURL
 
 ## URL エンコードされたリンクを日本語にデコードします
 
