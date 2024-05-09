@@ -9,7 +9,7 @@
         Height="360"
         Width="600"
         ScrollViewer.VerticalScrollBarVisibility="Disabled"
-        ResizeMode="NoResize"
+        ResizeMode="CanMinimize"
         Background="AliceBlue">
     <Window.Resources>
         <Style TargetType="TextBox">
