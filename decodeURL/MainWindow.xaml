@@ -31,6 +31,7 @@
             <RowDefinition Height="100" />
             <RowDefinition Height="100" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <StackPanel>
             <Label x:Name="appName"
@@ -71,6 +72,13 @@
                     Click="DoCopy" />
         </StackPanel>
         <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <CheckBox x:Name="tailCut"
+                      Content="末尾のパラメーターを削除する"
+                      IsChecked="True" />
+        </StackPanel>
+        <StackPanel Grid.Row="4"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
             <TextBlock x:Name="messageBox"
