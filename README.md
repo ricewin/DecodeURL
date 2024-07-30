@@ -1,5 +1,7 @@
 # DecodeURL
 
+[![Zenn](https://img.shields.io/badge/Zenn-pfirsich-turquoise?logo=zenn)](https://zenn.dev/pfirsich)
+
 ## URL エンコードされたリンクを日本語にデコードします
 
 - WPF アプリ

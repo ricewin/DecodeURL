@@ -23,10 +23,10 @@ namespace DecodeURL
         /// </summary>
         /// <param name="url"></param>
         /// <returns>URL</returns>
-        private static string SubUrl(string url)
+        private static string SubUrl(string url, bool isCut)
         {
             var repUrl = url.Replace(".mcas.ms", "");
-            var tailPos = repUrl.LastIndexOf('&');
+            var tailPos = isCut ? repUrl.LastIndexOf('&') : 0;
             if (tailPos > 0)
                 repUrl = repUrl[..tailPos];
 
@@ -44,7 +44,9 @@ namespace DecodeURL
         private void DoDecode(object sender, RoutedEventArgs e)
         {
             var decodeUrl = HttpUtility.UrlDecode(inputBox.Text);
-            outputBox.Text = Rewrite(decodeUrl) ? SubUrl(decodeUrl) : decodeUrl;
+            var isCut = tailCut.IsChecked == true;
+
+            outputBox.Text = Rewrite(decodeUrl) ? SubUrl(decodeUrl, isCut) : decodeUrl;
         }
 
         private void OpenBrowser(object sender, RoutedEventArgs e)
