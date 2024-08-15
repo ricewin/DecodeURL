@@ -11,47 +11,19 @@ namespace DecodeURL
     {
         public MainWindow() => InitializeComponent();
 
-        /// <summary>
-        /// SharePointか
-        /// </summary>
-        /// <param name="url"></param>
-        /// <returns>true: 有効, false: 無効</returns>
-        private static bool Rewrite(string url) => url.Contains(".sharepoint.");
-
-        /// <summary>
-        /// 不要なURIを削除
-        /// </summary>
-        /// <param name="url"></param>
-        /// <returns>URL</returns>
-        private static string SubUrl(string url, bool isCut)
-        {
-            var repUrl = url.Replace(".mcas.ms", "");
-            var tailPos = isCut ? repUrl.LastIndexOf('&') : 0;
-            if (tailPos > 0)
-                repUrl = repUrl[..tailPos];
-
-            var topPos = repUrl.IndexOf("/sites/");
-            var bottomPos = repUrl.LastIndexOf("/sites/");
-            return topPos == bottomPos ? repUrl : repUrl.Remove(topPos, bottomPos - topPos);
-        }
-
-        /// <summary>
-        /// デコード済みか
-        /// </summary>
-        /// <returns>true: 済み, false: 未済</returns>
-        private bool UrlDecoded => outputBox.Text != "";
-
         private void DoDecode(object sender, RoutedEventArgs e)
         {
             var decodeUrl = HttpUtility.UrlDecode(inputBox.Text);
             var isCut = tailCut.IsChecked == true;
 
-            outputBox.Text = Rewrite(decodeUrl) ? SubUrl(decodeUrl, isCut) : decodeUrl;
+            outputBox.Text = Decode.Rewrite(decodeUrl)
+                ? Decode.SubUrl(decodeUrl, isCut)
+                : decodeUrl;
         }
 
         private void OpenBrowser(object sender, RoutedEventArgs e)
         {
-            if (UrlDecoded)
+            if (Decode.UrlDecoded(outputBox.Text))
             {
                 _ = Process.Start(new ProcessStartInfo
                 {
@@ -63,7 +35,7 @@ namespace DecodeURL
 
         private void DoCopy(object sender, RoutedEventArgs e)
         {
-            if (UrlDecoded)
+            if (Decode.UrlDecoded(outputBox.Text))
             {
                 Clipboard.SetText(outputBox.Text);
                 messageBox.Text = "Copied!";
