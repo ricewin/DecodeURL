@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Web;
 using System.Windows;
+using System.Threading.Tasks;
 
 namespace DecodeURL
 {
@@ -33,12 +34,28 @@ namespace DecodeURL
             }
         }
 
-        private void DoCopy(object sender, RoutedEventArgs e)
+        private async void DoCopy(object sender, RoutedEventArgs e)
         {
-            if (Decode.UrlDecoded(outputBox.Text))
+            try
             {
-                Clipboard.SetText(outputBox.Text);
-                messageBox.Text = "Copied!";
+                if (Decode.UrlDecoded(outputBox.Text))
+                {
+                    Clipboard.SetText(outputBox.Text);
+                    messageBox.Text = "Copied!";
+
+                    // 一定時間待ってからメッセージを消す（ここでは2000ms = 2秒）
+                    await Task.Delay(2000);
+
+                    // 他の処理でメッセージが変わっていなければ消す
+                    if (messageBox.Text == "Copied!")
+                    {
+                        messageBox.Text = "";
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                messageBox.Text = $"Copy failed: {ex.Message}";
             }
         }
 
@@ -53,7 +70,7 @@ namespace DecodeURL
 
         private void InputSample(object sender, RoutedEventArgs e)
         {
-            inputBox.Text = "https://www.bing.com/travel/place-information?q=%E3%82%A2%E3%83%AB%E3%82%B6%E3%82%B9%E5%9C%B0%E5%9F%9F%E5%9C%8F";
+            inputBox.Text = "https://www.bing.com/search?q=%e3%82%b3%e3%83%ab%e3%83%9e%e3%83%bc%e3%83%ab";
         }
     }
 }
