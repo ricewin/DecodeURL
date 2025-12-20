@@ -8,7 +8,7 @@
 
 ### 実行環境
 
-- .NET 8.0 による実装なので、Runtime または SDK が必要
+- .NET 10.0 による実装なので、Runtime または SDK が必要
 - https://dotnet.microsoft.com/download
 
 ### 主な機能
@@ -43,6 +43,10 @@ https://hogehoge.sharepoint.com/sites/example/Shared%20Documents/Forms/AllItems.
 ---
 
 ## 更新履歴
+
+### 0.2.0
+
+- .NET 10 support
 
 ### 0.1.0
 
