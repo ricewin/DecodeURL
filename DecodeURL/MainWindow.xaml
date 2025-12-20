@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DecodeURL"
         mc:Ignorable="d"
         Title="Decode URL"
-        Height="360"
+        Height="380"
         Width="600"
         ScrollViewer.VerticalScrollBarVisibility="Disabled"
         ResizeMode="CanMinimize"
@@ -37,9 +37,8 @@
             <Label x:Name="appName"
                    Content="Decode URL"
                    FontSize="24"
-                   FontWeight="Black"
                    Foreground="Tomato"
-                   FontFamily="Broadway"
+                   FontFamily="Bauhaus 93"
                    Width="600" />
             <Label x:Name="detail"
                    Content="URLエンコードされたリンクを日本語にデコードします★"
@@ -74,6 +73,13 @@
         <StackPanel Grid.Row="3"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">
+            <TextBlock x:Name="messageBox"
+                       TextWrapping="Wrap"
+                       Width="210"
+                       FontSize="16"
+                       Foreground="OrangeRed"
+                       HorizontalAlignment="Center"
+                       FontFamily="Bauhaus 93" />
             <CheckBox x:Name="tailCut"
                       Content="末尾のパラメーターを削除する"
                       IsChecked="True" />
@@ -81,13 +87,6 @@
         <StackPanel Grid.Row="4"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
-            <TextBlock x:Name="messageBox"
-                       TextWrapping="Wrap"
-                       Width="210"
-                       FontSize="16"
-                       Foreground="OrangeRed"
-                       VerticalAlignment="Center"
-                       FontFamily="Broadway" />
             <Button x:Name="sample"
                     Content="サンプル(_E)"
                     Click="InputSample" />
